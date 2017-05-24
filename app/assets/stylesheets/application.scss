@@ -1,6 +1,47 @@
 @import "materialize";
 
-card{
-  text-align: center;
-  padding-right: 1090px;
+h1,h2,h3,h4,h5,h6,table,th,tr,tbody,thead{
+  line-height: 1;
 }
+
+h1{
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2{
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p{
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+.container{
+  text-align: left;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.btn{
+  text-align: center;
+}
+
+card{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  width: 50%;
+  float: none;
+}
+

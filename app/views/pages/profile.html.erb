@@ -1,0 +1,15 @@
+<h1>Personal Information</h1>
+<div class="divider"></div>
+<div class="container">
+<body>
+
+  <h5>Name:    <%= current_user.name %></h5>
+  <h5>Email:   <%= current_user.email %></h5>
+  <h5>City:    <%= current_user.city %></h5>
+  <h5>Country: <%= current_user.country %></h5>
+  <h5>Receive: <%= current_user.receive_emails %></h5>
+  <center>
+  <%=	link_to "Edit", edit_user_registration_path, class: "waves-effect waves-light btn" %>
+</center>
+</body>
+</div>
