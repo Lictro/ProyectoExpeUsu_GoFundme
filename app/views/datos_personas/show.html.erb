@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @datos_persona.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @datos_persona.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @datos_persona.city %>
+</p>
+
+<p>
+  <strong>Receive email:</strong>
+  <%= @datos_persona.receive_email %>
+</p>
+
+<%= link_to 'Edit', edit_datos_persona_path(@datos_persona) %> |
+<%= link_to 'Back', datos_personas_path %>
