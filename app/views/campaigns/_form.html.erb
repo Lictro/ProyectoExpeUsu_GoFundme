@@ -1,0 +1,41 @@
+<%= form_for(campaign) do |f| %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card white darken-1">
+          <div class="card-content black-text">
+            <span class="card-title">Sign up</span>
+            <div class="field">
+              <%= f.label :title %>
+              <%= f.text_field :title %>
+            </div>
+
+            <div class="field">
+              <%= f.label :description %>
+              <%= f.text_field :description %>
+            </div>
+
+            <div class="field">
+              <%= f.label :review %>
+              <%= f.text_area :review %>
+            </div>
+
+            <div class="field">
+              <%= f.label :category %>
+              <%= f.select :category , options_for_select([["Education", "e"], ["Medicine", "m"]])%>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Save", class:"waves-effect waves-light btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+</script>

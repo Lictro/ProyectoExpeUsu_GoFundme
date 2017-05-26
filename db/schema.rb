@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524072732) do
+ActiveRecord::Schema.define(version: 20170524230616) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
-    t.text     "description"
-    t.text     "review_camp"
+    t.string   "description"
+    t.text     "review"
+    t.decimal  "goal"
     t.string   "category"
     t.integer  "user_id"
-    t.string   "url"
-    t.integer  "likes_count"
+    t.integer  "likes"
     t.date     "finalized_in"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

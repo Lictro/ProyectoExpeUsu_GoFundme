@@ -1,0 +1,238 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s2"><a href="#test1">All</a></li>
+      <li class="tab col s2"><a href="#test2">EDUCATION</a></li>
+      <li class="tab col s2"><a href="#test3">SPORT</a></li>
+      <li class="tab col s2"><a href="#test4">MEDICINE</a></li>
+      <li class="tab col s2"><a href="#test5">FOOD</a></li>
+      <li class="tab col s2"><a href="#test6">PETS</a></li>
+    </ul>
+  </div>
+  <div id="test1" class="col s12">
+    <% @campaigns.each do |campaign| %>
+      <div class="row">
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image">
+              <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+              <span class="card-title"><%= campaign.title %></span>
+            </div>
+            <div class="card-content">
+              <p>Review: <%= campaign.description %></p>
+            </div>
+            <div class="card-action">
+              <p>Title: <%= campaign.title %></p>
+              <p>Review: <%= campaign.review %></p>
+              <p>Category: <%= campaign.category %></p>
+              <p>Goal: <%= campaign.goal %></p>
+              <p>Created at: <%= campaign.created_at %></p>
+              <p>Created by: <%= campaign.user.name %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id="test2" class="col s12">
+    <% @campaignsEdu.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="test3" class="col s12">
+    <% @campaignsSpr.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="test4" class="col s12">
+    <% @campaignsMed.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="test4" class="col s12">
+    <% @campaignsMed.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="test4" class="col s12">
+    <% @campaignsMed.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="test4" class="col s12">
+    <% @campaignsMed.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="test5" class="col s12">
+    <% @campaignsFoo.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="test4" class="col s12">
+    <% @campaignsPet.each do |campaign| %>
+        <div class="row">
+          <div class="col s6">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
+                <span class="card-title"><%= campaign.title %></span>
+              </div>
+              <div class="card-content">
+                <p>Review: <%= campaign.description %></p>
+              </div>
+              <div class="card-action">
+                <p>Title: <%= campaign.title %></p>
+                <p>Review: <%= campaign.review %></p>
+                <p>Category: <%= campaign.category %></p>
+                <p>Goal: <%= campaign.goal %></p>
+                <p>Created at: <%= campaign.created_at %></p>
+                <p>Created by: <%= campaign.user.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

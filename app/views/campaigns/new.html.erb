@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card white darken-1">
+      <div class="card-content black-text">
+        <span class="card-title">Create a campaign</span>
+        <%= form_for :campaign, url: campaigns_path do |f| %>
+            <div class="field">
+              <%= f.label :title %>
+              <%= f.text_field :title%>
+            </div>
+
+            <div class="field">
+              <%= f.label :description %>
+              <%= f.text_field :description %>
+            </div>
+
+            <div class="field">
+              <%= f.label :review %>
+              <%= f.text_area :review%>
+            </div>
+
+            <div class="field">
+              <%= f.label :goal %>
+              <%= f.text_field :goal %>
+            </div>
+
+            <div class="field">
+              <%= f.label :category %>
+              <%= f.collection_select :category, Campaign::CATEGORIES, :to_s, :to_s, :include_blank => FALSE, class:"dropdown-button btn"%>
+            </div>
+
+            <div class="field">
+              <%= f.label :finalized_in %>
+              <%= f.text_field :finalized_in, class:"datepicker" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Start it", class:"waves-effect waves-light btn" %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+    $('.dropdown-button').dropdown('open');
+    $('.dropdown-button').dropdown('close');
+</script>
+
+

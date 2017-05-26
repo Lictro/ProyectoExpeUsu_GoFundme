@@ -41,14 +41,13 @@
                 <%= f.check_box :receive_emails %>
                 <%= f.label :receive_emails %>
               </div>
-
+              <h2></h2>
               <div class="actions">
                 <%= f.submit "Sign up" , class:"waves-effect waves-light btn"%>
               </div>
+            <h6>Already registered? <%=	link_to "Login", new_user_session_path %></h6>
           </div>
         </div>
       </div>
     </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

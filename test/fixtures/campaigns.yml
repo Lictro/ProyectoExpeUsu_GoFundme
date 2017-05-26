@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
-  review_camp: MyText
+  title: 
+  description: MyString
+  review: MyText
+  goal: 9.99
   category: MyString
   user_id: 1
-  url: MyString
-  likes_count: 1
+  likes: 1
   finalized_in: 2017-05-24
 
 two:
-  title: MyString
-  description: MyText
-  review_camp: MyText
+  title: 
+  description: MyString
+  review: MyText
+  goal: 9.99
   category: MyString
   user_id: 1
-  url: MyString
-  likes_count: 1
+  likes: 1
   finalized_in: 2017-05-24

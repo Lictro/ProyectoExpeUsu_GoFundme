@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @campaign.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @campaign.description %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @campaign.review %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @campaign.goal %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @campaign.category %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @campaign.user_id %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @campaign.likes %>
+</p>
+
+<p>
+  <strong>Finalized in:</strong>
+  <%= @campaign.finalized_in %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>

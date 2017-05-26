@@ -15,3 +15,16 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
+
+
+$(document).ready(function() {
+    $('select').material_select();
+});
+
+$(document).ready(function(){
+    $('ul.tabs').tabs();
+});
+
+$(document).ready(function(){
+    $('ul.tabs').tabs('select_tab', 'tab_id');
+});
