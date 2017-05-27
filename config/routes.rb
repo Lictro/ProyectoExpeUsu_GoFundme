@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :donations
+  resources :comments
   resources :campaigns
   devise_for :users
   get 'pages/profile'
