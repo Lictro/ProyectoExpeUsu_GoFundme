@@ -35,12 +35,27 @@
         </div>
       </nav>
   <% end %>
- 
   <div class="container">
-  
+    <% if notice %>
+        <p class="alert alert-success">
+            <script>
+                $(function() {
+                  Materialize.toast("<%= notice %>", 3000);
+                });
+            </script>
+        </p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger">
+            <script>
+                $(function() {
+                  Materialize.toast("<%= alert %>", 3000);
+                });
+            </script>
+        </p>
+    <% end %>
     <%= yield %>
-    </div>
-  
+  </div>
   <footer class="page-footer">
     <div class="container">
       <div class="row">

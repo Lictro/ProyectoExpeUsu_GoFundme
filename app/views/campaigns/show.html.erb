@@ -1,45 +1,54 @@
+<a class="waves-effect waves-light btn" data-target="modal1">Creator</a>
+<a class="waves-effect waves-light btn" data-target="modal2">Donate!</a>
+<a class="waves-effect waves-light btn" data-target="modal3">Comments</a>
 
-<p id="notice"><%= notice %></p>
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Creator</h4>
+    <p>
+      <%=	@campaign %>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-light red darken-1 btn">Close</a>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @campaign.title %>
-</p>
+<div id="modal2" class="modal">
+  <%= form_for :donation, url: donations_path do |f| %>
+      <div class="modal-content">
+        <h1>Create Donation</h1>
+        <% if @donation.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% @donation.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+        <%= f.label :autor %><%= f.text_field :autor %>
+        </div>
+        <div class="field">
+          <%= f.label :message %><%= f.text_field :message %>
+        </div>
+        <div class="field">
+          <%= f.label :amount %><%= f.text_field :amount %>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-light red darken-1 btn">Cancel</a>
+            <%= f.submit 'Donate',class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+        </div>
+      </div>
+  <% end %>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @campaign.description %>
-</p>
-
-<p>
-  <strong>Review:</strong>
-  <%= @campaign.review %>
-</p>
-
-<p>
-  <strong>Goal:</strong>
-  <%= @campaign.goal %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @campaign.category %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @campaign.user_id %>
-</p>
-
-<p>
-  <strong>Likes:</strong>
-  <%= @campaign.likes %>
-</p>
-
-<p>
-  <strong>Finalized in:</strong>
-  <%= @campaign.finalized_in %>
-</p>
-
-<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-<%= link_to 'Back', campaigns_path %>
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+    $('#modal1').modal('open');
+    $('#modal1').modal('close');
+</script>
