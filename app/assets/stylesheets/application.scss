@@ -27,10 +27,10 @@ p{
 
 .container{
   text-align: left;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .btn{
@@ -43,5 +43,17 @@ card{
   border-radius: 5px;
   width: 50%;
   float: none;
+}
+
+.form-signup {
+  max-width: 800px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-login {
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
 }
 
