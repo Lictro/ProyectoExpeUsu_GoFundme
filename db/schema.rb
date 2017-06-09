@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170527064701) do
     t.integer  "campaign_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["campaign_id"], name: "index_comments_on_campaign_id"
   end
 
   create_table "donations", force: :cascade do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170527064701) do
     t.integer  "campaign_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["campaign_id"], name: "index_donations_on_campaign_id"
   end
 
   create_table "users", force: :cascade do |t|

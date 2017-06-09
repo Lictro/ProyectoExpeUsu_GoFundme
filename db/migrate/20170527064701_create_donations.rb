@@ -4,7 +4,7 @@ class CreateDonations < ActiveRecord::Migration[5.0]
       t.string :autor
       t.string :message
       t.float :amount
-      t.integer :campaign_id
+      t.references :campaign, foreign_key: true
 
       t.timestamps
     end

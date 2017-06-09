@@ -24,7 +24,8 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
-    @donation = campaigns.donations.new(donation_params)
+    @campaign = Campaign.find(params[:id])
+    @donation = @campaign.donations.create(donation_params)
 
     respond_to do |format|
       if @donation.save
