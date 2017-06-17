@@ -1,0 +1,33 @@
+<h1>Welcome to your Dashboard</h1>
+
+
+<div class="divider"></div>
+<div class="row">
+  <% @campaigns.each do |campaign| %>
+      <% if campaign.goal>=campaign.collection(campaign.id)  %>
+        <div class="col m4">
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <%= image_tag campaign.avatar.url(:medium),class: "size" %>
+                </div>
+                <div class="card-content">
+                  <center>
+                    <span class="card-title activator grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">more_vert</i></span>
+                  </center>
+                  <%= link_to 'View',campaign,class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">close</i></span>
+                  <p>Goal: <%= campaign.goal %></p>
+                  <p>Collection</p>
+                  <div class="progress">
+                    <div class="determinate" style="width: <%= campaign.progress(campaign.id) %>%"></div>
+                  </div>
+                  <p>Created at: <%= campaign.created_at %></p>
+                  <p>Created by: <%= campaign.user.name %></p>
+                </div>
+              </div>
+        </div>
+      <% end %>
+  <% end %>
+</div>

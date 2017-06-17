@@ -1,13 +1,54 @@
-<a class="waves-effect waves-light btn" data-target="modal1">Creator</a>
-<a class="waves-effect waves-light btn" data-target="modal2">Donate!</a>
-<a class="waves-effect waves-light btn" data-target="modal3">Comments</a>
-
+<div class="row">
+  <div class="col m12">
+    <div class="col m6">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag @campaign.avatar.url(:medium),class: "img"%>
+            <span class="card-title"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m6">
+      <div class="card-panel teal">
+          <span class="white-text">
+            <p><%= @campaign.title %></p>
+            <p><%= @campaign.category %></p>
+            <p><%= @campaign.description %></p>
+            <p><%= @campaign.goal %></p>
+            <div class="progress red lighten-2">
+              <div class="determinate" style="width: <%= @campaign.progress(@campaign.id) %>%"></div>
+            </div>
+            <p><%= @campaign.likes %> Likes</p>
+          </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row center-align">
+  <div class="col m12">
+    <div class="col m3">
+      <a class="waves-effect waves-light btn" data-target="modal1"><i class="material-icons left">perm_identity</i>Creator</a>
+    </div>
+    <div class="col m3">
+      <a class="waves-effect waves-light btn" data-target="modal2"><i class="material-icons left">redeem</i>Donate!</a>
+    </div>
+    <div class="col m3">
+      <a class="waves-effect waves-light btn" data-target="modal3"><i class="material-icons left">comment</i>Comment</a>
+    </div>
+    <div class="col m3">
+      <a class="waves-effect waves-light btn" data-target="modal3"><i class="material-icons left">thumb_up</i>Like</a>
+    </div>
+  </div>
+</div>
 <div id="modal1" class="modal">
   <div class="modal-content">
-    <h4>Creator</h4>
-    <p>
-      <%=	@campaign %>
-    </p>
+    <h1>Creator</h1>
+    <center>
+      <p><%=	@campaign.user.name %></p>
+      <p><%=	@campaign.user.email %></p>
+      <p><%=	@campaign.user.city %></p>
+      <p><%=	@campaign.user.country %></p>
+    </center>
   </div>
   <div class="modal-footer">
     <a class="modal-action modal-close waves-effect waves-light red darken-1 btn">Close</a>
@@ -15,14 +56,18 @@
 </div>
 
 <div id="modal2" class="modal">
-  <%= form_for :donation, url: donations_path do |f| %>
+  <%= form_for([@campaign, @campaign.donations.build]) do |f| %>
       <div class="modal-content">
         <h1>Create Donation</h1>
         <% if @donation.errors.any? %>
           <div id="error_explanation">
             <ul>
               <% @donation.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
+                  <script>
+                      $(function() {
+                          Materialize.toast(<%= message %>, 5000);
+                      });
+                  </script>
               <% end %>
             </ul>
           </div>
@@ -36,14 +81,67 @@
         <div class="field">
           <%= f.label :amount %><%= f.text_field :amount %>
         </div>
-        <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-light red darken-1 btn">Cancel</a>
-            <%= f.submit 'Donate',class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
-        </div>
+        <center>
+          <%= f.submit 'Donate',class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+          <a class="modal-action modal-close waves-effect waves-light red darken-1 btn">Cancel</a>
+        </center>
       </div>
   <% end %>
 </div>
 
+<div id="modal3" class="modal">
+  <%= form_for([@campaign, @campaign.comments.build]) do |f| %>
+      <div class="modal-content">
+        <h1>Comment</h1>
+        <% if @comment.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% @comment.errors.full_messages.each do |message| %>
+                  <script>
+                      $(function() {
+                          Materialize.toast(<%= message %>, 5000);
+                      });
+                  </script>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+        <%= f.label :autor %><%= f.text_field :autor %>
+        </div>
+        <div class="field">
+          <%= f.label :message %><%= f.text_field :message %>
+        </div>
+        <center>
+          <%= f.submit 'Comment',class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+          <a class="modal-action modal-close waves-effect waves-light red darken-1 btn">Cancel</a>
+        </center>
+      </div>
+  <% end %>
+</div>
+
+<ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">redeem</i>Donations</div>
+      <div class="collapsible-body white">
+        <span>
+           <% @donations.each do |donation| %>
+            <p><%= donation.autor %> - <%= donation.message %> - <%= donation.amount %></p>
+           <% end %>
+        </span>
+      </div>
+    </li>
+  </ul>
+<ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">comment</i>Comments</div>
+      <div class="collapsible-body white">
+          <% @comments.each do |comment| %>
+           <p><%= comment.autor %> - <%= comment.message %></p>
+          <% end %>
+      </div>
+    </li>
+  </ul>  
 <script>
     $(document).ready(function(){
         // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered

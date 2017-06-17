@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  autor: MyString
-  message: MyString
-  campaign_id: 1
+  string: 
+  text: 
+  int: 
 
 two:
-  autor: MyString
-  message: MyString
-  campaign_id: 1
+  string: 
+  text: 
+  int: 

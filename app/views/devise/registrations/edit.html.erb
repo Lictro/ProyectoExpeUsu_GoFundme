@@ -6,6 +6,11 @@
         <div class="card white darken-1">
           <div class="card-content black-text">
             <span class="card-title">Edit my info</span>
+              
+              <div class="field">
+                Profile Photo<br />
+                <%= f.file_field :avatar%>
+              </div>
               <div class="field">
                   <%= f.label :name %><br />
                 <%=	f.text_field :name, autofocus: true %>

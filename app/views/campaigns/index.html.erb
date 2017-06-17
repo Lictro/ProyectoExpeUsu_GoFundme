@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s2"><a href="#test1">All</a></li>
+      <li class="tab col s2"><a href="#test1">ALL</a></li>
       <li class="tab col s2"><a href="#test2">EDUCATION</a></li>
       <li class="tab col s2"><a href="#test3">SPORT</a></li>
       <li class="tab col s2"><a href="#test4">MEDICINE</a></li>
@@ -9,143 +9,189 @@
       <li class="tab col s2"><a href="#test6">PETS</a></li>
     </ul>
   </div>
-
   <div id="test1" class="col m12">
       <div class="row">
         <% @campaigns.each do |campaign| %>
-        <div class="col s6">
-          <div class="card">
-            <div class="card-image">
-              <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
-              <span class="card-title"><%= link_to campaign.title, campaign %></span>
-            </div>
-            <div class="card-content">
-              <p>Review: <%= campaign.description %></p>
-            </div>
-            <div class="card-action">
-              <p>Title: <%= campaign.title %></p>
-              <p>Category: <%= campaign.category %></p>
-              <p>Goal: <%= campaign.goal %></p>
-              <p>Created at: <%= campaign.created_at %></p>
-              <p>Created by: <%= campaign.user.name %></p>
-            </div>
-          </div>
-        </div>
+            <% if campaign.goal>=campaign.collection(campaign.id)  %>
+              <div class="col s4">
+                  <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <%= image_tag campaign.avatar.url(:medium),class: "size" %>
+                    </div>
+                    <div class="card-content">
+                      <center>
+                        <span class="card-title activator grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">more_vert</i></span>
+                      </center>
+                      <%= link_to 'View',campaign,class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">close</i></span>
+                      <p>Goal: <%= campaign.goal %></p>
+                      <p>Collection</p>
+                      <div class="progress">
+                        <div class="determinate" style="width: <%= campaign.progress(campaign.id) %>%"></div>
+                      </div>
+                      <p>Created at: <%= campaign.created_at %></p>
+                      <p>Created by: <%= campaign.user.name %></p>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
         <% end %>
       </div>
   </div>
   <div id="test2" class="col m12">
         <div class="row">
           <% @campaignsEdu.each do |campaign| %>
-          <div class="col s6">
-            <div class="card">
-              <div class="card-image">
-                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
-                <span class="card-title"><%= link_to campaign.title, campaign %></span>
-              </div>
-              <div class="card-content">
-                <p>Review: <%= campaign.description %></p>
-              </div>
-              <div class="card-action">
-                <p>Title: <%= campaign.title %></p>
-                <p>Goal: <%= campaign.goal %></p>
-                <p>Created at: <%= campaign.created_at %></p>
-                <p>Created by: <%= campaign.user.name %></p>
-              </div>
-            </div>
-          </div>
+              <% if campaign.goal>=campaign.collection(campaign.id)  %>
+                <div class="col s4">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <%= image_tag campaign.avatar.url(:medium),class: "size" %>
+                      </div>
+                      <div class="card-content">
+                        <center>
+                          <span class="card-title activator grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">more_vert</i></span>
+                        </center>
+                        <%= link_to 'View',campaign,class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">close</i></span>
+                        <p>Goal: <%= campaign.goal %></p>
+                        <p>Collection</p>
+                        <div class="progress">
+                          <div class="determinate" style="width: <%= campaign.progress(campaign.id) %>%"></div>
+                        </div>
+                        <p>Created at: <%= campaign.created_at %></p>
+                        <p>Created by: <%= campaign.user.name %></p>
+                      </div>
+                    </div>
+                </div>
+              <% end %>
           <% end %>
         </div>
   </div>
   <div id="test3" class="col m12">
         <div class="row">
           <% @campaignsSpr.each do |campaign| %>
-          <div class="col s6">
-            <div class="card">
-              <div class="card-image">
-                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
-                <span class="card-title"><%= link_to campaign.title, campaign %></span>
-              </div>
-              <div class="card-content">
-                <p>Review: <%= campaign.description %></p>
-              </div>
-              <div class="card-action">
-                <p>Title: <%= campaign.title %></p>
-                <p>Goal: <%= campaign.goal %></p>
-                <p>Created at: <%= campaign.created_at %></p>
-                <p>Created by: <%= campaign.user.name %></p>
-              </div>
-            </div>
-          </div>
+              <% if campaign.goal>=campaign.collection(campaign.id)  %>
+                <div class="col s4">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                      <%= image_tag campaign.avatar.url(:medium),class: "size" %>
+                      </div>
+                      <div class="card-content">
+                        <center>
+                          <span class="card-title activator grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">more_vert</i></span>
+                        </center>
+                        <%= link_to 'View',campaign,class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">close</i></span>
+                        <p>Goal: <%= campaign.goal %></p>
+                        <p>Collection</p>
+                        <div class="progress">
+                          <div class="determinate" style="width: <%= campaign.progress(campaign.id) %>%"></div>
+                        </div>
+                        <p>Created at: <%= campaign.created_at %></p>
+                        <p>Created by: <%= campaign.user.name %></p>
+                      </div>
+                    </div>
+                </div>
+              <% end %>
           <% end %>
         </div>
   </div>
   <div id="test4" class="col m12">
         <div class="row">
           <% @campaignsMed.each do |campaign| %>
-          <div class="col s6">
-            <div class="card">
-              <div class="card-image">
-                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
-                <span class="card-title"><%= link_to campaign.title, campaign %></span>
-              </div>
-              <div class="card-content">
-                <p>Review: <%= campaign.description %></p>
-              </div>
-              <div class="card-action">
-                <p>Title: <%= campaign.title %></p>
-                <p>Goal: <%= campaign.goal %></p>
-                <p>Created at: <%= campaign.created_at %></p>
-                <p>Created by: <%= campaign.user.name %></p>
-              </div>
-            </div>
-          </div>
+              <% if campaign.goal>=campaign.collection(campaign.id)  %>
+                <div class="col s4">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                      <%= image_tag campaign.avatar.url(:medium),class: "size" %>
+                      </div>
+                      <div class="card-content">
+                        <center>
+                          <span class="card-title activator grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">more_vert</i></span>
+                        </center>
+                        <%= link_to 'View',campaign,class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">close</i></span>
+                        <p>Goal: <%= campaign.goal %></p>
+                        <p>Collection</p>
+                        <div class="progress">
+                          <div class="determinate" style="width: <%= campaign.progress(campaign.id) %>%"></div>
+                        </div>
+                        <p>Created at: <%= campaign.created_at %></p>
+                        <p>Created by: <%= campaign.user.name %></p>
+                      </div>
+                    </div>
+                </div>
+              <% end %>
           <% end %>
         </div>
   </div>
   <div id="test5" class="col m12">
         <div class="row">
           <% @campaignsFoo.each do |campaign| %>
-          <div class="col s6">
-            <div class="card">
-              <div class="card-image">
-                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
-                <span class="card-title"><%= link_to campaign.title, campaign %></span>
-              </div>
-              <div class="card-content">
-                <p>Review: <%= campaign.description %></p>
-              </div>
-              <div class="card-action">
-                <p>Title: <%= campaign.title %></p>
-                <p>Goal: <%= campaign.goal %></p>
-                <p>Created at: <%= campaign.created_at %></p>
-                <p>Created by: <%= campaign.user.name %></p>
-              </div>
-            </div>
-          </div>
+              <% if campaign.goal>=campaign.collection(campaign.id)  %>
+                <div class="col s4">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                      <%= image_tag campaign.avatar.url(:medium),class:"size" %>
+                      </div>
+                      <div class="card-content">
+                        <center>
+                          <span class="card-title activator grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">more_vert</i></span>
+                        </center>
+                        <%= link_to 'View',campaign,class:"modal-action modal-close modal-action waves-effect waves-light btn" %>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">close</i></span>
+                        <p>Goal: <%= campaign.goal %></p>
+                        <p>Collection</p>
+                        <div class="progress">
+                          <div class="determinate" style="width: <%= campaign.progress(campaign.id) %>%"></div>
+                        </div>
+                        <p>Created at: <%= campaign.created_at %></p>
+                        <p>Created by: <%= campaign.user.name %></p>
+                      </div>
+                    </div>
+                </div>
+              <% end %>
           <% end %>
         </div>
   </div>
   <div id="test6" class="col m12">
         <div class="row">
           <% @campaignsPet.each do |campaign| %>
-          <div class="col s6">
-            <div class="card">
-              <div class="card-image">
-                <img src="http://marcianosmx.com/wp-content/uploads/2014/08/escuelas_increibles-5.jpg">
-                <span class="card-title"><%= link_to campaign.title, campaign %></span>
-              </div>
-              <div class="card-content">
-                <p>Review: <%= campaign.description %></p>
-              </div>
-              <div class="card-action">
-                <p>Title: <%= campaign.title %></p>
-                <p>Goal: <%= campaign.goal %></p>
-                <p>Created at: <%= campaign.created_at %></p>
-                <p>Created by: <%= campaign.user.name %></p>
-              </div>
-            </div>
-          </div>
+              <% if campaign.goal>=campaign.collection(campaign.id)  %>
+                <div class="col s4">
+                  <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                    <%= image_tag campaign.avatar.url(:medium),class: "size" %>
+                    </div>
+                    <div class="card-content">
+                      <center>
+                        <span class="card-title activator grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">more_vert</i></span>
+                      </center>
+                      <i><%= link_to 'visibility',campaign,class:"material-icons modal-action modal-close modal-action waves-effect waves-light btn" %></i>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4"><%= campaign.title %><i class="material-icons right">close</i></span>
+                      <p>Goal: <%= campaign.goal %></p>
+                      <p>Collection</p>
+                      <div class="progress">
+                        <div class="determinate" style="width: 70%"></div>
+                      </div>
+                      <p>Created at: <%= campaign.created_at %></p>
+                      <p>Created by: <%= campaign.user.name %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
           <% end %>
         </div>
   </div>

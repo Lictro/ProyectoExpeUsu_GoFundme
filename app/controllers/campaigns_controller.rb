@@ -1,35 +1,37 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only:[:new]
   # GET /campaigns run -p port:2 -it my-py-app
   # GET /campaigns.json cd tarea && python main.py
   def index
     @campaigns = Campaign.all.order(created_at: :asc)
-    @campaignsEdu = Campaign.where(:category => "EDUCATION").order(created_at: :asc)
-    @campaignsSpr = Campaign.where(:category => "SPORTS").order(created_at: :asc)
-    @campaignsMed = Campaign.where(:category => "MEDICINE").order(created_at: :asc)
-    @campaignsFoo = Campaign.where(:category => "FOOD").order(created_at: :asc)
-    @campaignsPet = Campaign.where(:category => "PETS").order(created_at: :asc)
+    @campaignsEdu = Campaign.popular.where(:category => "EDUCATION").order(created_at: :asc)
+    @campaignsSpr = Campaign.popular.where(:category => "SPORTS").order(created_at: :asc)
+    @campaignsMed = Campaign.popular.where(:category => "MEDICINE").order(created_at: :asc)
+    @campaignsFoo = Campaign.popular.where(:category => "FOOD").order(created_at: :asc)
+    @campaignsPet = Campaign.popular.where(:category => "PETS").order(created_at: :asc)
   end
 
-  # GET /campaigns/1
-  # GET /campaigns/1.json
   def show
-    @donation = Donation.new
     @campaign = Campaign.find(params[:id])
+    @donation = Donation.new
+    @comment = Comment.new
+    @donations = @campaign.donations
+    @comments = @campaign.comments
   end
 
-  # GET /campaigns/new
+  def like
+     @campaign = Campaign.find(params[:id])
+     @campaign.like(@campaign.id)
+  end
+
   def new
     @campaign = Campaign.new
   end
 
-  # GET /campaigns/1/edit
   def edit
   end
 
-  # POST /campaigns
-  # POST /campaigns.json
   def create
     @campaign = current_user.campaigns.new(campaign_params)
 
@@ -44,8 +46,6 @@ class CampaignsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /campaigns/1
-  # PATCH/PUT /campaigns/1.json
   def update
     respond_to do |format|
       if @campaign.update(mod_params)
@@ -58,8 +58,6 @@ class CampaignsController < ApplicationController
     end
   end
 
-  # DELETE /campaigns/1
-  # DELETE /campaigns/1.json
   def destroy
     @campaign.destroy
     respond_to do |format|
@@ -74,10 +72,10 @@ class CampaignsController < ApplicationController
     end
 
     def campaign_params
-      params.require(:campaign).permit(:title, :description, :review, :goal, :category,:finalized_in)
+      params.require(:campaign).permit(:title, :description, :review, :goal, :category,:finalized_in,:avatar)
     end
 
     def mod_params
-      params.require(:campaign).permit(:title, :description, :review, :category)
+      params.require(:campaign).permit(:title, :description, :review, :category,:avatar)
     end
 end

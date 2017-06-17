@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527064701) do
+ActiveRecord::Schema.define(version: 20170613234447) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
@@ -21,13 +21,17 @@ ActiveRecord::Schema.define(version: 20170527064701) do
     t.integer  "user_id"
     t.integer  "likes"
     t.date     "finalized_in"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "comments", force: :cascade do |t|
     t.string   "autor"
-    t.string   "message"
+    t.text     "message"
     t.integer  "campaign_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -37,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170527064701) do
   create_table "donations", force: :cascade do |t|
     t.string   "autor"
     t.string   "message"
-    t.float    "amount"
+    t.decimal  "amount"
     t.integer  "campaign_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -61,6 +65,10 @@ ActiveRecord::Schema.define(version: 20170527064701) do
     t.string   "city"
     t.string   "country"
     t.boolean  "receive_emails",         default: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

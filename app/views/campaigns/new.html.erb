@@ -1,6 +1,5 @@
-
-<div class="row">
-  <div class="col s12 m6">
+<div class="row center-block">
+  <div class="col s12">
     <div class="card white darken-1">
       <div class="card-content black-text">
         <span class="card-title">Create a campaign</span>
@@ -35,6 +34,11 @@
               <%= f.text_field :finalized_in, class:"datepicker" %>
             </div>
 
+            <div class="field">
+            <p>Photo:</p>
+              <%= f.file_field :avatar %>
+            </div>
+
             <div class="actions">
               <%= f.submit "Start it", class:"waves-effect waves-light btn" %>
             </div>
@@ -43,7 +47,6 @@
       </div>
     </div>
   </div>
-
 <script>
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
