@@ -38,7 +38,9 @@
         </div>
       </nav>
   <% end %>
-  <div class="container">
+  
+  <main class="light-blue lighten-5">
+  <div class="container ">
     <% if notice %>
         <p class="alert alert-success">
             <script>
@@ -58,6 +60,8 @@
         </p>
     <% end %>
     <%= yield %>
+
+    </main>
   </div>
   <footer class="page-footer">
     <div class="container">
